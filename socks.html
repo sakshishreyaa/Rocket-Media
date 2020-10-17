@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+</head>
+<body>
+    <script>
+        var n= window.prompt('Enter number of socks');
+        var ar= window.prompt('Enter the array elements representing colors of socks')
+        const arr = ar.split(' ').map(arTemp => parseInt(arTemp, 10));
+        document.write(getPairs(n,arr)+' pairs of socks are available');
+        function getPairs(n, arr) {
+        arr.sort()
+        var cnt=1;
+        var pair=0;
+        var ele=arr[0];
+
+        for (var i = 1; i < n; i++){
+            if (arr[i] == ele ){
+                cnt++;
+            }
+            else {  
+                if(cnt>1){
+                    pair=pair+Math.floor(cnt/2);
+                    
+                }
+                ele=arr[i];
+                cnt=1;
+            }
+        }
+        pair+=Math.floor(cnt/2);
+        return pair
+
+        }
+    </script>
+</body>
